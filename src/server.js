@@ -1,13 +1,25 @@
 import express from "express";
+import ConnectDB from "./config/connectDB";
+import ContactModel from "./models/contact.model";
+require("dotenv").config();
 let app = express();
 
-let hostname = "localhost";
-let port = 8002;
+//Connect to mongodb
+ConnectDB();
 
-app.get("/hello",(req,res)=>{
-    res.send("<h1>hello</h1>")
+app.get("/test-database",async (req,res)=>{
+    try {
+        let item = {
+            userId: "qwe123",
+            contactId: "sgsgf2424",
+        }
+        let contact = await ContactModel.createNew(item)
+        res.send(contact);
+    } catch (error) {
+        console.log(err);
+    }
 });
 
-app.listen(port,hostname,()=>{
-    console.log(`running at ${hostname}:${port}`);
+app.listen(process.env.APP_PORT,process.env.APP_HOSTNAME,()=>{
+    console.log(`running at ${process.env.APP_HOSTNAME}:${process.env.APP_PORT}`);
 });
