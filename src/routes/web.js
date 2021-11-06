@@ -14,17 +14,20 @@ let router = express.Router();
  * @param app from exactly express module
  */
 let initRoutes = (app) =>{
-    router.get("/",home.getHome);
-    router.get("/loginRegister",auth.getLoginRegister);
-    router.post("/register",authValid.register,auth.postRegister);
-    router.get("/verify/:token",auth.verifyAccount);
 
-    router.post("/login", passport.authenticate("local",{
+    router.get("/loginRegister",auth.checkLoggedOut,auth.getLoginRegister);
+    router.post("/register",auth.checkLoggedOut,authValid.register,auth.postRegister);
+    router.get("/verify/:token",auth.checkLoggedOut,auth.verifyAccount);
+
+    router.post("/login", auth.checkLoggedOut,passport.authenticate("local",{
         successRedirect: "/",
         failureRedirect: "/loginRegister",
         successFlash: true,
         failureFlash: true
     }));   
+    router.get("/",auth.checkLoggedIn,home.getHome);
+    router.get("/logout",auth.checkLoggedIn ,auth.getLogout);
+
     return app.use("/",router);
 };
 
