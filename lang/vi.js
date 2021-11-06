@@ -9,14 +9,19 @@ export const transErrors = {
     account_in_use: "Email này đã được sử dụng.",
     account_removed: "Tài khoản đã bị xóa khỏi hệ thống",
     account_not_active: "Email này đã được đăng kí nhưng chưa active tài khoản,vui lòng kiểm tra email",
-    token_undifined: "Token không tồn tại"
+    token_undifined: "Token không tồn tại",
+    login_failed: "Sai mật khẩu hoặc tài khoản!",
+    server_error: "Có lỗi ở phía server.Vui lòng liên hệ với bộ phận hỗ trợ.Xin cảm ơn."
 };
 
 export const transSuccess = {
     userCreated: (userEmail) =>{
         return `Tài khoản <strong>${userEmail}</strong> đã được tạo,vui lòng kiểm tra email để active tài khoản trước khi đăng nhập. ` 
     },
-    account_activated: "Kích hoạt tài khoản thành công ,bạn đã có thể đăng nhập vào ứng dụng."
+    account_activated: "Kích hoạt tài khoản thành công ,bạn đã có thể đăng nhập vào ứng dụng.",
+    login_success: (username) =>{
+        return `Xin chào ${username}.Chúc các bạn một ngày tốt lành.`;
+    }
 };
 
 export const transMail = {
