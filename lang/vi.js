@@ -2,7 +2,11 @@ export const transValidation = {
     email_incorrect: "Email phải có dạng name123@gmail.com",
     gender_incorrect: "Vui lòng chọn lại",
     password_incorrect: "Phải chứa ít nhất 8 kí tự bao gồm chữ thường,chữ hoa, số và kí tự đặc biệt ",
-    password_confirmation_incorrect: "Nhập lại mật khẩu đã nhập ở trên!"
+    password_confirmation_incorrect: "Nhập lại mật khẩu đã nhập ở trên!",
+    update_username: "Tên người dùng giới hạn trong khoảng 3-17 kí tự và không được chứa kí tự đặc biệt.",
+    update_gender: "!!!",
+    update_address: "Địa chỉ giới hạn trong khoảng 5-30 kí tự.",
+    update_phone: "Số điện thoại Việt Nam bắt đầu bằng số 0, từ 10-11 số."
 };
 
 export const transErrors = {
@@ -25,7 +29,7 @@ export const transSuccess = {
         return `Xin chào ${username}.Chúc các bạn một ngày tốt lành.`;
     },
     logout_success: "Đăng xuất tài khoản thành công.",
-    avatar_updated: "Cập nhật hình đại diện thành công."
+    user_Info_updated: "Cập nhật thông tin người dùng thành công."
 };
 
 export const transMail = {
