@@ -11,7 +11,9 @@ export const transErrors = {
     account_not_active: "Email này đã được đăng kí nhưng chưa active tài khoản,vui lòng kiểm tra email",
     token_undifined: "Token không tồn tại",
     login_failed: "Sai mật khẩu hoặc tài khoản!",
-    server_error: "Có lỗi ở phía server.Vui lòng liên hệ với bộ phận hỗ trợ.Xin cảm ơn."
+    server_error: "Có lỗi ở phía server.Vui lòng liên hệ với bộ phận hỗ trợ.Xin cảm ơn.",
+    avatar_type: "Kiểu file hình ảnh không hợp lệ,chỉ chấp nhận định dạng jpg,png.",
+    avatar_size: "Ảnh upload tối đa cho phép là 1 MB"
 };
 
 export const transSuccess = {
