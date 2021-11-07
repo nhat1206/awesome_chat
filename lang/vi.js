@@ -12,8 +12,8 @@ export const transErrors = {
     token_undifined: "Token không tồn tại",
     login_failed: "Sai mật khẩu hoặc tài khoản!",
     server_error: "Có lỗi ở phía server.Vui lòng liên hệ với bộ phận hỗ trợ.Xin cảm ơn.",
-    avatar_type: "Kiểu file hình ảnh không hợp lệ,chỉ chấp nhận định dạng jpg,png.",
-    avatar_size: "Ảnh upload tối đa cho phép là 1 MB"
+    avatar_type: "Kiểu file hình ảnh không hợp lệ,chỉ chấp nhận định dạng jpg,png,jpeg.",
+    avatar_size: "Ảnh upload tối đa cho phép là 1 MB."
 };
 
 export const transSuccess = {
@@ -24,7 +24,8 @@ export const transSuccess = {
     login_success: (username) =>{
         return `Xin chào ${username}.Chúc các bạn một ngày tốt lành.`;
     },
-    logout_success: "Đăng xuất tài khoản thành công."
+    logout_success: "Đăng xuất tài khoản thành công.",
+    avatar_updated: "Cập nhật hình đại diện thành công."
 };
 
 export const transMail = {

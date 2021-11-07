@@ -61,6 +61,10 @@ UserSchema.statics = {
 
     findByFacebooUid(uid){
         return this.findOne({"facebook.uid": uid}).exec();
+    },
+
+    updateUser(id,item){
+        return this.findByIdAndUpdate(id,item).exec();
     }
 };
 

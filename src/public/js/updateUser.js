@@ -8,16 +8,16 @@ function updateUserInfo() {
         let math = ["image/png","image/jpg","image/jpeg"];
         let limit = 1048576; //Byte=1MB
 
-        // if ($.inArray(fileData.type, math) === -1) {
-        //     alertify.notify("Kiểu file hình ảnh không hợp lệ,chỉ chấp nhận định dạng jpg,png,jpeg.","error",7);
-        //     $(this).val(null);
-        //     return false;
-        // }
-        // if (fileData.size > limit) {
-        //     alertify.notify("Ảnh upload tối đa cho phép là 1 MB","error",7);
-        //     $(this).val(null);
-        //     return false;
-        // }
+        if ($.inArray(fileData.type, math) === -1) {
+            alertify.notify("Kiểu file hình ảnh không hợp lệ,chỉ chấp nhận định dạng jpg,png,jpeg.","error",7);
+            $(this).val(null);
+            return false;
+        }
+        if (fileData.size > limit) {
+            alertify.notify("Ảnh upload tối đa cho phép là 1 MB","error",7);
+            $(this).val(null);
+            return false;
+        }
 
         if (typeof(FileReader) != "undefined") {
             let imagePreview = $("#image-edit-profile");
@@ -76,17 +76,34 @@ $(document).ready(function() {
         }
 
         $.ajax({
-            url: "/user/update_avatar",
+            url: "/user/update-avatar",
             type: "put",
             cache: false,
             contentType: false,
             processData: false,
             data:userAvatar,
             success: function(result){
-                
+                console.log(result);
+                //Display success
+                $(".user-modal-alert-success").find("span").text(result.message);
+                $(".user-modal-alert-success").css("display", "block");
+
+                //Update avatar at navbar
+                $("#navbar-avatar").attr("src",result.imageSrc);
+
+                //update origin avatar src
+                originAvatarSrc = result.imageSrc;
+
+                //reset all
+                $("#input-btn-cancel-update-user").click();
             },
             error: function(error){
                 //Hiển thị lỗi
+                $(".user-modal-alert-error").find("span").text(error.responseText);
+                $(".user-modal-alert-error").css("display", "block");
+
+                //reset all
+                $("#input-btn-cancel-update-user").click();
             },
         });
     });
@@ -94,6 +111,7 @@ $(document).ready(function() {
     $("#input-btn-cancel-update-user").bind("click", function(){
         userAvatar = null;
         userInfo = {};
+        $("#input-change-avatar").val(null);
         $("#user-modal-avatar").attr("src", originAvatarSrc);
     });
 });
