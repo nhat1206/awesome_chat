@@ -18,7 +18,8 @@ function removeRequestContact(){
     });        
 }
 socket.on("response-remove-request-contact",function(user){
-    $(".noti_content").find(`span[data-uid = ${user.id}]`).remove();
+    $(".noti_content").find(`div[data-uid = ${user.id}]`).remove(); //remove popup
+    $("ul.list-notifications").find(`li>div[data-uid = ${user.id}]`).parent().remove();
 
     //Xoa o modal tab yeu cau ket ban
     decreaseNumberNotiContact("count-request-contact-received");    
