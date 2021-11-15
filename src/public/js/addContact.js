@@ -5,11 +5,13 @@ function addContact(){
         $.post("/contact/add-new", {uid: targerId},function(data){
             if(data.success){
                 $("#find-user").find(`div.user-add-new-contact[data-uid = ${targerId}]`).hide();
-                $("#find-user").find(`div.user-remove-request-contact[data-uid = ${targerId}]`).css("display", "inline-block");
+                $("#find-user").find(`div.user-remove-request-contact-sent[data-uid = ${targerId}]`).css("display", "inline-block");
                 increaseNumberNotiContact("count-request-contact-sent");
 
                 let userInfoHtml = $("#find-user").find(`ul li[data-uid= ${targerId}]`).get(0).outerHTML;
                 $("#request-contact-sent").find("ul").prepend(userInfoHtml);
+
+                removeRequestContactSent(); //js/removerequestcontactsent.js
 
                 socket.emit("add-new-contact",{contactId: targerId});
             }
