@@ -3,7 +3,7 @@ import UserModel from "./../models/userModel";
 import _ from "lodash";
 import NotificationModel from "./../models/notificationModel";
 
-const LIMIT_NUMBER_TAKEN = 1;
+const LIMIT_NUMBER_TAKEN = 10;
 
 let findUsersContact = (currentUserId,keyword) => {
     return new Promise( async (resolve,reject) =>{
@@ -43,6 +43,16 @@ let addNew = (currentUserId,contactId) => {
         resolve(newContact);
     });
 };
+
+let removeContact = (currentUserId,contactId) =>{
+    return new Promise( async (resolve,reject) =>{
+        let removeContact = await ContactModel.removeContact(currentUserId,contactId);
+        if(removeContact.result.n === 0){
+            return reject(false);
+        }
+        resolve(true);
+    });
+}
 
 let removeRequestContactSent = (currentUserId,contactId) => {
     return new Promise( async (resolve,reject) =>{
@@ -215,6 +225,7 @@ let readMoreContactsReceived = (currentUserId,skipNumberContacts) =>{
 module.exports = {
     findUsersContact: findUsersContact,
     addNew: addNew,
+    removeContact: removeContact,
     removeRequestContactSent: removeRequestContactSent,
     removeRequestContactReceived: removeRequestContactReceived,
     getContacts: getContacts,
