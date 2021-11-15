@@ -1,10 +1,10 @@
 function removeRequestContactReceived(){
     $(".user-remove-request-contact-received").unbind("click").on("click",function(){
-        let targerId = $(this).data("uid");
+        let targetId = $(this).data("uid");
         $.ajax({
             url:"/contact/remove-request-contact-received",
             type: "delete",
-            data: {uid: targerId},
+            data: {uid: targetId},
             success: function(data){
                 if(data.success){
                     //
@@ -16,8 +16,8 @@ function removeRequestContactReceived(){
                     decreaseNumberNotiContact("count-request-contact-received");
 
                     
-                    $("#request-contact-received").find(`li[data-uid = ${targerId}]`).remove();
-                    socket.emit("remove-request-contact-received",{contactId: targerId});
+                    $("#request-contact-received").find(`li[data-uid = ${targetId}]`).remove();
+                    socket.emit("remove-request-contact-received",{contactId: targetId});
                 }
     
             }
