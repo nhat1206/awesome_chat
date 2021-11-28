@@ -210,5 +210,5 @@ $(document).ready(function() {
   changeScreenChat();
 
   //click vao phan tu dau tien khi load trang
-  $("ul.people").find("li")[0].click();
+  $("ul.people").find("a")[0].click();
 });

@@ -7,7 +7,8 @@ export const transValidation = {
     update_gender: "!!!",
     update_address: "Địa chỉ giới hạn trong khoảng 5-30 kí tự.",
     update_phone: "Số điện thoại Việt Nam bắt đầu bằng số 0, từ 10-11 số.",
-    keyword_find_user: "Lỗi kí tự tìm kiếm,chỉ cho phép chữ cái và số ,cho phép khoảng trống"
+    keyword_find_user: "Lỗi kí tự tìm kiếm,chỉ cho phép chữ cái và số ,cho phép khoảng trống",
+    message_text_emoji_incorrect: "Tin nhắn không hợp lệ.Tối thiểu 1 kí tự"
 };
 
 export const transErrors = {
@@ -20,7 +21,8 @@ export const transErrors = {
     server_error: "Có lỗi ở phía server.Vui lòng liên hệ với bộ phận hỗ trợ.Xin cảm ơn.",
     avatar_type: "Kiểu file hình ảnh không hợp lệ,chỉ chấp nhận định dạng jpg,png,jpeg.",
     avatar_size: "Ảnh upload tối đa cho phép là 1 MB.",
-    user_current_password_failed: "Mật khẩu hiện tại không chính xác."
+    user_current_password_failed: "Mật khẩu hiện tại không chính xác.",
+    coversation_not_found: "Cuộc trò chuyện không tồn tại."
 };
 
 export const transSuccess = {
