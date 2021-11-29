@@ -123,7 +123,7 @@
                                 <% if(message.messageType === "text") { %>
                                     <div class="convert-emoji bubble <% if(message.senderId == user._id) { %> me <% }else{ %> you <% 
                                     }  %>" data-mess-id="<%= message._id %>">
-                                        <% message.text %>
+                                        <%= message.text %>
                                     </div>
                                 <% } %>
                                 <% if(message.messageType === "image") { %>
