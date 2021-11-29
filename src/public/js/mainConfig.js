@@ -169,14 +169,20 @@ function changeScreenChat(){
     $(`.person[data-chat=${divId}]`).addClass("active");
     $(this).tab("show");
 
-    
-    console.log(divId);
     nineScrollRight(divId);
 
     // Bật emoji, tham số truyền vào là id của box nhập nội dung tin nhắn
     enableEmojioneArea(divId);
   });
 }
+
+function convertEmoji(){
+    $(".convert-emoji").each(function() {
+        var original = $(this).html();
+        var converted = emojione.toImage(original);
+        $(this).html(converted);
+    });
+};
 
 $(document).ready(function() {
   // Hide số thông báo trên đầu icon mở modal contact
@@ -209,6 +215,9 @@ $(document).ready(function() {
 
   //Thay doi man hinh chat
   changeScreenChat();
+
+  //convert cac unicode thanh hinh anh
+  convertEmoji();
 
   //click vao phan tu dau tien khi load trang
   $("ul.people").find("a")[0].click();
