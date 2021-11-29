@@ -42,6 +42,11 @@ function enableEmojioneArea(divId) {
       },
       click: function(){
         textAndEmojiChat(divId);
+        typingOn(divId);
+      },
+      blur: function(){
+        //tat chuc nang nguoi dung dang tro chuyen
+        typingOff(divId);
       }
     },
   });
