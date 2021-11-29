@@ -20,8 +20,7 @@ function textAndEmojiChat(divId) {
             $.post("/message/add-new-text-emoji", dataTextEmojiForSend,function(data){
                 console.log(data.message);
             }).fail(function(response){
-                // alertify.notify(response.responseText,"error",7);
-                console.log(response);
+                alertify.notify(response.responseText,"error",7);
             });
         }
     });
