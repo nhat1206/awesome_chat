@@ -15,7 +15,7 @@ let addNewTextEmoji = async(req,res) =>{
         let sender = {
             id: req.user._id,
             name: req.user.username,
-            avatar: req.user.avatar
+            avatar: req.user.avatar,
         };
         let receiverId = req.body.uid;
         let messageVal = req.body.messageVal;

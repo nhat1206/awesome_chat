@@ -88,9 +88,9 @@ function configNotification() {
 }
 
 function gridPhotos(layoutNumber) {
-  $(".show_images").unbind("click").on("click",function(){
+  $(".show-images").unbind("click").on("click",function(){
     let href = $(this).attr("href");
-    let modalImageId = href.repplace("#", "");
+    let modalImageId = href.replace("#", "");
 
     let countRows = Math.ceil($(`#${modalImageId}`).find("div.all-images>img").length / layoutNumber);
     let layoutStr = new Array(countRows).fill(layoutNumber).join("");
