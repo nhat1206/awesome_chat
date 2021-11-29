@@ -85,7 +85,7 @@ let addNewTextEmoji = (sender,receiverId,messageVal,isChatGroup) =>{
                     createdAt: Date.now(),
                 };
 
-                let newMessage = await new MessageModel.model.createNew(newMessageItem);
+                let newMessage = await MessageModel.model.createNew(newMessageItem);
                 await ChatGroupModel.updateWhenHasNewMessage(getChatGroupReceiver._id,getChatGroupReceiver.messageAmount + 1);
                 resolve(newMessage);
             }else{
@@ -108,7 +108,7 @@ let addNewTextEmoji = (sender,receiverId,messageVal,isChatGroup) =>{
                     text: messageVal,
                     createdAt: Date.now(),
                 };
-                let newMessage = await new MessageModel.model.createNew(newMessageItem);
+                let newMessage = await MessageModel.model.createNew(newMessageItem);
                 await ContactModel.updateWhenHasNewMessage(sender.id,getUserReceiver._id);
                 resolve(newMessage);
             }

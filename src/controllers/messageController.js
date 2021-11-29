@@ -1,7 +1,7 @@
 import {validationResult} from "express-validator/check";
 import {message} from "./../services/index";
 
-let addNewTextEmoji = async(req,res) =>{
+let addNewTextEmoji = async (req,res) =>{
     let errorArr = [];
     let validationErrors = validationResult(req);
     if(!validationErrors.isEmpty()){
@@ -24,10 +24,10 @@ let addNewTextEmoji = async(req,res) =>{
         let newMessage = await message.addNewTextEmoji(sender,receiverId,messageVal,isChatGroup);
         return res.status(200).send({message: newMessage});
     } catch (error) {
-        return res.status(500).send(error);
+         return res.status(500).send(error);
     }    
 };
 
 module.exports = {
     addNewTextEmoji: addNewTextEmoji
-}
+};
