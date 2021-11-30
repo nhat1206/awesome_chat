@@ -23,7 +23,7 @@ function textAndEmojiChat(divId) {
                     message: data.message
                 };
                 //handle message data before show
-                let messageOfMe = $(`<div class="convert-emoji bubble me data-mess-id="${data.message._id}"></div>`);
+                let messageOfMe = $(`<div class="convert-emoji bubble me" data-mess-id="${data.message._id}"></div>`);
                 messageOfMe.text(data.message.text);
                 let convertEmojiMessage = emojione.toImage(messageOfMe.html());
                 if (dataTextEmojiForSend.isChatGroup) {
@@ -57,7 +57,7 @@ function textAndEmojiChat(divId) {
                 $(`.person[data-chat=${divId}]`).trigger("nhat.moveConversationToTop");
 
                 //emit realtime
-                socket.emit("chat-text-emoji", dataToEmit)
+                socket.emit("chat-text-emoji", dataToEmit);
 
                 //emit remove typing realtime
                 typingOff(divId);
@@ -77,7 +77,7 @@ function textAndEmojiChat(divId) {
 $(document).ready(function(){
     socket.on("response-chat-text-emoji",function(response){
         let divId = "";
-        let messageOfYou = $(`<div class="convert-emoji bubble you data-mess-id="${response.message._id}"></div>`);
+        let messageOfYou = $(`<div class="convert-emoji bubble you" data-mess-id="${response.message._id}"></div>`);
         messageOfYou.text(response.message.text);
         let convertEmojiMessage = emojione.toImage(messageOfYou.html());
         if (response.currentGroupId) {
