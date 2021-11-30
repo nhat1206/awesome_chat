@@ -22,7 +22,9 @@ export const transErrors = {
     avatar_type: "Kiểu file hình ảnh không hợp lệ,chỉ chấp nhận định dạng jpg,png,jpeg.",
     avatar_size: "Ảnh upload tối đa cho phép là 1 MB.",
     user_current_password_failed: "Mật khẩu hiện tại không chính xác.",
-    coversation_not_found: "Cuộc trò chuyện không tồn tại."
+    coversation_not_found: "Cuộc trò chuyện không tồn tại.",
+    image_message_type: "Kiểu file hình ảnh không hợp lệ,chỉ chấp nhận định dạng jpg,png,jpeg.",
+    image_message_size: "Ảnh upload tối đa cho phép là 1 MB.",
 };
 
 export const transSuccess = {
