@@ -14,6 +14,7 @@ import configSocketio from "./config/socketio";
 //import pem from "pem";
 //import https from "https";
 require("dotenv").config();
+require('events').EventEmitter.prototype._maxListeners = 100;
 
 let app = express();
 
