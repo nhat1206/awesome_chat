@@ -226,7 +226,7 @@ function callCreateGroupChat(){
                 //bước 8: Emit new group created
                 socket.emit("new-group-created", {groupChat: data.groupChat});
 
-                //buowcs9 rỗng
+                //b9 rỗng
 
                 //bước 10
                 socket.emit("check-status");
