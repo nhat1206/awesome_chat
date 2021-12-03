@@ -181,6 +181,20 @@ function bufferToBase64(buffer){
   return btoa(new Uint8Array(buffer).reduce((data, byte) => data + String.fromCharCode(byte), ""));
 };
 
+function notYetConversation(){
+  if (!$("ul.people").find("a").length) {
+    Swal.fire({
+      title: `Bạn chưa có bạn bè ? Hãy tìm kiếm cuộc trò chuyện!`,
+      type: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#2ECC71",
+      confirmButtonText: "Xác nhận",
+    }).then((result) => {
+        $("#contactsModal").modal("show");
+      });
+  }
+}
+
 $(document).ready(function() {
   // Hide số thông báo trên đầu icon mở modal contact
   showModalContacts();
