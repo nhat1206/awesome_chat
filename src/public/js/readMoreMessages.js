@@ -1,6 +1,5 @@
 function readMoreMessages(){
-    $(".right .chat").scroll(function(){
-
+    $(".right .chat").unbind("scroll").on("scroll",function(){
         //lấy tin nhắn đầu tiên
         let firstMessage = $(this).find(".bubble:first");
         //lấy vị trí của tin nhắn đầu tiên
