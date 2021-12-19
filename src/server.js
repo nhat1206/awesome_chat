@@ -53,6 +53,10 @@ configSocketio(io, cookieParser, session.sessionStore);
 //Init all sockets
 initSockets(io);
 
+// server.listen(process.env.APP_PORT,process.env.APP_HOSTNAME,()=>{
+//     console.log(`running at ${process.env.APP_HOSTNAME}:${process.env.APP_PORT}`);
+// });
+
 server.listen(process.env.APP_PORT,process.env.APP_HOSTNAME,()=>{
     console.log(`running at ${process.env.APP_HOSTNAME}:${process.env.APP_PORT}`);
 });
