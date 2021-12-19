@@ -9,7 +9,7 @@ let MongoStore = connectMongo(session);
  */
 let sessionStore = new MongoStore({
     // url:`${process.env.DB_CONNECTION}://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
-    url:`mongodb+srv://awesomechat10:awesomechat10@awesomechat.hsuap.mongodb.net/=awesomechat?retryWrites=true&w=majority`,
+    url:`mongodb://awesomechat10:awesomechat10@awesomechat-shard-00-00.hsuap.mongodb.net:27017,awesomechat-shard-00-01.hsuap.mongodb.net:27017,awesomechat-shard-00-02.hsuap.mongodb.net:27017/awesomechat?ssl=true&replicaSet=atlas-uz5soo-shard-0&authSource=admin&retryWrites=true&w=majority`,
     autoReconnect: true
 });
 
