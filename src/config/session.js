@@ -8,7 +8,8 @@ let MongoStore = connectMongo(session);
  * This variable is where save session 
  */
 let sessionStore = new MongoStore({
-    url:`${process.env.DB_CONNECTION}://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
+    // url:`${process.env.DB_CONNECTION}://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
+    url:`mongodb+srv://awesomechat10:awesomechat10@awesomechat.hsuap.mongodb.net/=awesomechat?retryWrites=true&w=majority`,
     autoReconnect: true
 });
 
